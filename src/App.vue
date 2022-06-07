@@ -29,10 +29,9 @@ export default {
     settings: {
       slideEffectModel: "slide",
       slideHasIntervalModel: true,
-      slideIntervalModel: 3000,
+      slideIntervalModel: 5000,
       slideHoverPauseModel: false,
       slideLazyModel: true,
-      slideShowCtrlOnHover: true,
     },
     slides: [
       {
@@ -60,7 +59,6 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import "@/scss/main.scss";
 main {
   width: 100%;
   display: grid;

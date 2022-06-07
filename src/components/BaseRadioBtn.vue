@@ -27,11 +27,9 @@ export default {
   },
   computed: {
     elementId() {
-      return this.id ? this.id : `radio-${Date.now()}`;
+      let uniq = Math.random().toString().replace(/0./i, "");
+      return this.id ? this.id : `radio-${uniq}`;
     },
   },
 };
 </script>
-
-<style lang="scss">
-</style>

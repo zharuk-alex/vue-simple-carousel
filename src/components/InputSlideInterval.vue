@@ -26,7 +26,8 @@ export default {
       },
     },
     elementId() {
-      return this.id ? this.id : `input-${Date.now()}`;
+      let uniq = Math.random().toString().replace(/0./i, "");
+      return this.id ? this.id : `input-${uniq}`;
     },
   },
 };

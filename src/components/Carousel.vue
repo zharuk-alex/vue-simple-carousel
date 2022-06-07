@@ -156,6 +156,12 @@ export default {
     },
   },
   watch: {
+    visibleSlide() {
+      if (this.hasInterval) {
+        this.destroySlideInterval();
+        this.setSlideInterval();
+      }
+    },
     hasInterval(newval) {
       if (!newval) {
         this.destroySlideInterval();
@@ -220,7 +226,7 @@ export default {
     justify-content: center;
     margin-right: 15%;
     margin-left: 15%;
-
+    padding: 0 10px;
     li {
       width: 50px;
       height: 4px;
