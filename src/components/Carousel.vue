@@ -183,6 +183,7 @@ export default {
   .carousel-btn {
     position: absolute;
     top: calc(50% - 18px);
+    opacity: 0.8;
     &.carousel-btn-prev {
       left: 0px;
     }
@@ -197,6 +198,14 @@ export default {
 
     svg.chevron-right-icon {
       transform: rotate(180deg);
+    }
+    transition: all 0.3s;
+    &:hover {
+      background-color: darken($primary_color, 5%);
+      opacity: 1;
+      svg.chevron-icon path {
+        fill: #ffffff !important;
+      }
     }
   }
 

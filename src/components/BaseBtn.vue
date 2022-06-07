@@ -29,12 +29,12 @@ button {
 
   background-color: $primary_color;
   padding: 4px 23px;
-  border-radius: 80px;
+  border-radius: 1rem;
   border: none;
-
+  transition: background-color 0.3s;
   &:hover {
     cursor: pointer;
-    background-color: rgba(255, 227, 2, 1);
+    background-color: darken($primary_color, 5%);
   }
 
   &:disabled,
