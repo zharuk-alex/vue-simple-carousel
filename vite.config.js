@@ -23,5 +23,5 @@ export default defineConfig({
       }
     }
   },
-  base: process.env.NODE_ENV === 'production' ? '/vue-slider/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/vue-simple-carousel/' : '/',
 })
