@@ -4,12 +4,22 @@
       <h1>Simple vue carousel</h1>
       <main>
         <CarouselSettings v-model="settings" />
+
         <Carousel
+          v-if="slides.length"
           :slides="slides"
-          :carousel-effect="settings.slideEffectModel"
-          :has-interval="settings.slideHasIntervalModel"
-          :interval="settings.slideIntervalModel"
-          :hover-pause="settings.slideHoverPauseModel"
+          :has-ctrl="settings.hasCtrlModel"
+          :sizing="settings.sizeModel"
+          :carousel-effect="settings.effectModel"
+          :has-timeout="settings.hasAutoplayModel"
+          :timeout-time="settings.timeoutTimeModel"
+          :timeout-step="settings.timeoutStep"
+          :hover-pause="settings.hoverPauseModel"
+          :has-thumbs="settings.isThumbsModel"
+          :has-indicators="settings.hasIndicatorsModel"
+          :has-count="settings.hasCountModel"
+          @slides-update="slides = $event"
+          :key="slides.length"
         />
       </main>
     </div>
@@ -17,8 +27,9 @@
 </template>
 
 <script>
-import Carousel from "@/components/Carousel.vue";
-import CarouselSettings from "@/components/CarouselSettings.vue";
+import Carousel from "@/components/Carousel/index.vue";
+import CarouselSettings from "@/components/Settings.vue";
+import { createImagesData } from "@/imagesData.js";
 
 export default {
   components: {
@@ -27,35 +38,24 @@ export default {
   },
   data: () => ({
     settings: {
-      slideEffectModel: "slide",
-      slideHasIntervalModel: true,
-      slideIntervalModel: 5000,
-      slideHoverPauseModel: false,
-      slideLazyModel: true,
+      effectModel: "slide1",
+      hasCtrlModel: true,
+      hasAutoplayModel: true,
+      timeoutTimeModel: 4000,
+      timeoutStep: 500,
+      hoverPauseModel: false,
+      sizeModel: "cover",
+      isThumbsModel: true,
+      hasIndicatorsModel: true,
+      hasCountModel: true,
     },
-    slides: [
-      {
-        src: "https://picsum.photos/id/237/600/350",
-        id: 237,
-      },
-      {
-        src: "https://picsum.photos/id/236/600/350",
-        id: 236,
-      },
-      {
-        src: "https://picsum.photos/id/235/600/350",
-        id: 235,
-      },
-      {
-        src: "https://picsum.photos/id/234/600/350",
-        id: 234,
-      },
-      {
-        src: "https://picsum.photos/id/233/600/350",
-        id: 233,
-      },
-    ],
+    slides: [],
   }),
+  created() {
+    createImagesData(150, 160, 600, 350).then((images) =>
+      images.map((image) => this.slides.push(image))
+    );
+  },
 };
 </script>
 <style lang="scss">

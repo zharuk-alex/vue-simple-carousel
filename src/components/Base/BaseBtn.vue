@@ -28,10 +28,12 @@ button {
   margin: 0 20px;
 
   background-color: $primary_color;
-  padding: 4px 23px;
-  border-radius: 1rem;
+  padding: 4px;
+  border-radius: 50%;
   border: none;
   transition: background-color 0.3s;
+  line-height: 0;
+  color: #ffffff;
   &:hover {
     cursor: pointer;
     background-color: darken($primary_color, 5%);
@@ -41,7 +43,9 @@ button {
   [disabled] {
     cursor: not-allowed;
     background-color: rgba(180, 180, 180, 1);
-    color: #ffffff;
+  }
+  :slotted(svg path) {
+    fill: #ffffff !important;
   }
 }
 </style>
