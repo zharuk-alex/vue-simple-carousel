@@ -34,5 +34,8 @@ export default {
   font-size: 1.5rem;
   padding: 6px 23px;
   color: #fff;
+  @include for-size(phone-only) {
+    font-size: 0.95rem;
+  }
 }
 </style>

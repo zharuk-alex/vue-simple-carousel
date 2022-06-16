@@ -56,6 +56,7 @@
 
     <Thumbs
       v-if="hasThumbs"
+      ref="thumb"
       :thumbs="thumbsItems"
       :current="visibleSlide"
       @click-indicator="indicatorClickHandler"
@@ -150,6 +151,7 @@ export default {
 
     carouselHeight() {
       if (this.hasThumbs) {
+        console.log(this.$refs);
         return { height: `calc(${this.height}px - 80px)` };
       } else if (!this.hasThumbs) {
         return { height: `${this.height}px` };
@@ -251,11 +253,10 @@ export default {
     },
   },
   watch: {
-    visibleSlide(newval) {
+    visibleSlide() {
       if (this.hasTimeout) {
         this.interval_time = this.timeoutTime;
         this.destroySlideInterval();
-
         setTimeout(() => this.setSlideInterval(), 0);
       }
     },

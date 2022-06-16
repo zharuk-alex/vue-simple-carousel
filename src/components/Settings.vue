@@ -94,6 +94,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+/* settings.scss */
 fieldset:first-of-type {
   @include for-size(tablet-landscape-up) {
     padding-top: 0;

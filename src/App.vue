@@ -58,7 +58,8 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+/* main */
 main {
   width: 100%;
   display: grid;

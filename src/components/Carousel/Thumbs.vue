@@ -1,5 +1,5 @@
 <template>
-  <div class="carousel-thumbs">
+  <div ref="thumbs" class="carousel-thumbs">
     <ul class="carousel-thumbs-wrapper">
       <li
         v-for="(thumb, index) in thumbs"

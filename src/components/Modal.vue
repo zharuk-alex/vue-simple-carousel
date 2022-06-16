@@ -41,6 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+/* modal.scss */
 .modal {
   position: fixed;
   top: 0;

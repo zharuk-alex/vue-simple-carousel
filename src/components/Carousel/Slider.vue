@@ -67,26 +67,16 @@ export default {
 }
 
 .left-enter-active {
-  animation-name: leftInAnimation;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
+  animation: leftInAnimation 0.4s ease-in-out;
 }
 .left-leave-active {
-  animation-name: leftOutAnimation;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
-  animation-delay: v-bind("transitionDelay");
+  animation: leftOutAnimation 0.4s ease-in-out v-bind("transitionDelay");
 }
 
 .right-enter-active {
-  animation-name: rightInAnimation;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
+  animation: rightInAnimation 0.4s ease-in-out;
 }
 .right-leave-active {
-  animation-name: rightOutAnimation;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-in-out;
-  animation-delay: v-bind("transitionDelay");
+  animation: rightOutAnimation 0.4s ease-in-out v-bind("transitionDelay");
 }
 </style>

@@ -3,7 +3,7 @@
     <label>
       <div class="switch">
         <input type="checkbox" v-model="model" />
-        <span class="slider round"></span>
+        <span class="switch-slider"></span>
       </div>
       <slot></slot>
     </label>
@@ -31,12 +31,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 18px;
+  width: 36px;
+  height: 16px;
   margin-right: 8px;
 }
 
@@ -46,7 +46,7 @@ export default {
   height: 0;
 }
 
-.slider {
+.switch-slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -55,41 +55,36 @@ export default {
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 4px;
-  bottom: 1px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider::before {
-  left: 0;
-}
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(20px);
-}
-/* Rounded sliders */
-.slider.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.switch-slider:before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border: 1px solid rgb(118, 118, 118);
   border-radius: 50%;
+}
+
+input:checked + .switch-slider::before {
+  left: 0;
+}
+
+input:checked + .switch-slider {
+  background-color: $primary-color;
+}
+
+input:focus + .switch-slider {
+  box-shadow: 0 0 1px $primary-color;
+}
+
+input:checked + .switch-slider:before {
+  transform: translateX(20px);
 }
 </style>

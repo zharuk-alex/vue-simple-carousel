@@ -16,15 +16,8 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
-          
-          @import "./src/scss/main.scss";
-        `,
-        // @import "./src/scss/_variables.scss";
-        // @import "./src/scss/_mixins.scss";
-        // @import "./src/scss/_fonts.scss";
-        plugins: [
-          autoprefixer
-        ],
+          @import "./src/scss/core.scss";
+        `
       }
     }
   },
