@@ -10,7 +10,8 @@
     "deploy-github": "sh deploy-github.sh"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue3-touch-events": "^4.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",

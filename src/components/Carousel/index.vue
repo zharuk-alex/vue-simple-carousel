@@ -3,6 +3,7 @@
     class="carousel"
     @mouseenter="isHovering = true"
     @mouseleave="isHovering = false"
+    v-touch:swipe="swipeSlide"
   >
     <div class="carousel-inner-wrapper" :style="[carouselHeight]">
       <div v-if="debagInfo" class="debag-wrapper">
@@ -174,8 +175,8 @@ export default {
       });
     },
     debagInfo() {
-      let show = false;
-      return show
+      let showdebag = false;
+      return showdebag
         ? {
             interval_time: this.interval_time,
             interval_id: this.interval_id,
@@ -190,6 +191,16 @@ export default {
     this.setSlideInterval();
   },
   methods: {
+    swipeSlide(direction, event) {
+      event.preventDefault();
+
+      if (direction == "left") {
+        return this.nextSlide();
+      } else if (direction == "right") {
+        return this.prevSlide();
+      }
+      return;
+    },
     setSlideInterval() {
       if (!this.hasTimeout) {
         return;

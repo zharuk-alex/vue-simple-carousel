@@ -1,6 +1,9 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import lazyload from './directives/lazyload'
+import Vue3TouchEvents from "vue3-touch-events";
+
+
 import "@/scss/app.scss"
 
 
@@ -13,7 +16,7 @@ Object.entries(components).forEach(([path, definition]) => {
 })
 
 app.directive('lazyload', lazyload)
-
+app.use(Vue3TouchEvents)
 app.mount('#app')
 
 
