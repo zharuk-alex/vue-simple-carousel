@@ -1,32 +1,34 @@
 <template>
-  <transition name="fade">
-    <div v-show="modelValue" class="modal">
-      <div class="modal-container">
-        <div class="modal-title">
-          <slot name="title"></slot>
-          <base-btn
-            class="modal-btn-close"
-            @click="$emit('update:modelValue', false)"
-          >
-            <svg
-              width="24px"
-              height="24px"
-              viewBox="-6 -6 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMinYMin"
-              class="jam jam-close"
+  <teleport to="body">
+    <transition name="fade">
+      <div v-show="modelValue" class="modal">
+        <div class="modal-container">
+          <div class="modal-title">
+            <slot name="title"></slot>
+            <base-btn
+              class="modal-btn-close"
+              @click="$emit('update:modelValue', false)"
             >
-              <path
-                d="M7.314 5.9l3.535-3.536A1 1 0 1 0 9.435.95L5.899 4.485 2.364.95A1 1 0 1 0 .95 2.364l3.535 3.535L.95 9.435a1 1 0 1 0 1.414 1.414l3.535-3.535 3.536 3.535a1 1 0 1 0 1.414-1.414L7.314 5.899z"
-              />
-            </svg>
-          </base-btn>
+              <svg
+                width="24px"
+                height="24px"
+                viewBox="-6 -6 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMinYMin"
+                class="jam jam-close"
+              >
+                <path
+                  d="M7.314 5.9l3.535-3.536A1 1 0 1 0 9.435.95L5.899 4.485 2.364.95A1 1 0 1 0 .95 2.364l3.535 3.535L.95 9.435a1 1 0 1 0 1.414 1.414l3.535-3.535 3.536 3.535a1 1 0 1 0 1.414-1.414L7.314 5.899z"
+                />
+              </svg>
+            </base-btn>
+          </div>
+          <slot name="body"></slot>
+          <slot name="footer"></slot>
         </div>
-        <slot name="body"></slot>
-        <slot name="footer"></slot>
       </div>
-    </div>
-  </transition>
+    </transition>
+  </teleport>
 </template>
 
 <script>

@@ -12,8 +12,8 @@
 
       <Lightbox v-model="isFullscreen" :hover="isHovering">
         <img
-          v-if="isFullscreen"
-          :src="slides[visibleSlide].original"
+          v-lazyload
+          :data-src="slides[visibleSlide].original"
           :alt="slides[visibleSlide].title"
           class="w-100"
         />
@@ -26,12 +26,10 @@
         :carouselEffect="carouselEffect"
         :key="carouselEffect"
       >
-        <img
-          v-lazyload
-          :data-src="slides[visibleSlide].src"
-          :alt="slides[visibleSlide].alt"
-          :style="sliderImgSize"
-        />
+        <slider-image
+          :src="slides[visibleSlide].src"
+          :sizing="sizing"
+        ></slider-image>
       </Slider>
 
       <buttons-control
@@ -71,6 +69,7 @@ import Indicators from "@/components/Carousel/Indicators.vue";
 import Thumbs from "@/components/Carousel/Thumbs.vue";
 import Lightbox from "@/components/Carousel/Lightbox.vue";
 import Slider from "@/components/Carousel/Slider.vue";
+import SliderImage from "@/components/Carousel/SliderImage.vue";
 import CarouselCountHolder from "@/components/Carousel/CountHolder.vue";
 
 export default {
@@ -80,6 +79,7 @@ export default {
     Indicators,
     Lightbox,
     Slider,
+    SliderImage,
     CarouselCountHolder,
   },
 
@@ -101,7 +101,6 @@ export default {
     },
     sizing: {
       type: String,
-      default: "cover",
     },
     hasIndicators: {
       type: Boolean,
@@ -136,20 +135,6 @@ export default {
     isFullscreen: false,
   }),
   computed: {
-    sliderImgSize() {
-      if (this.sizing == "cover") {
-        return {
-          width: "100%",
-          height: "auto",
-        };
-      } else if (this.sizing == "contain") {
-        return {
-          width: "auto",
-          height: "100%",
-        };
-      }
-    },
-
     carouselHeight() {
       if (this.hasThumbs) {
         console.log(this.$refs);

@@ -14,15 +14,14 @@
           />
         </svg>
       </base-btn>
-      <teleport to="body">
-        <modal v-model="modelValue" @input="$emit('update:modelValue', $event)">
-          <template #body>
-            <slot></slot>
-          </template>
-        </modal>
-      </teleport>
     </div>
   </transition>
+
+  <modal v-model="modelValue" @input="$emit('update:modelValue', $event)">
+    <template #body>
+      <slot></slot>
+    </template>
+  </modal>
 </template>
 
 <script>

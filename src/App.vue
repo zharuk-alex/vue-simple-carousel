@@ -40,7 +40,7 @@ export default {
     settings: {
       effectModel: "slide1",
       hasCtrlModel: true,
-      hasAutoplayModel: true,
+      hasAutoplayModel: false,
       timeoutTimeModel: 4000,
       timeoutStep: 500,
       hoverPauseModel: false,
